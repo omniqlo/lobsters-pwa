@@ -1,0 +1,73 @@
+{
+  "name": "lobsters-pwa",
+  "version": "0.1.0",
+  "private": true,
+  "description": "",
+  "author": "omniqlo",
+  "bugs": {
+    "url": "https://github.com/omniqlo/lobsters-pwa/issues"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
+    "autoprefixer": "^10.4.7",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "fixpack": "^4.0.0",
+    "fromnow": "^3.0.1",
+    "husky": "^8.0.1",
+    "is-ci": "^3.0.1",
+    "lint-staged": "^13.0.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.14",
+    "prettier": "^2.6.2",
+    "prettier-plugin-svelte": "^2.7.0",
+    "svelte": "^3.44.0",
+    "svelte-check": "^2.7.1",
+    "svelte-markdown": "^0.2.2",
+    "svelte-preprocess": "^4.10.7",
+    "tailwindcss": "^3.0.24",
+    "topbar": "^1.0.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.7.3"
+  },
+  "homepage": "https://github.com/omniqlo/lobsters-pwa#readme",
+  "prettier": {
+    "bracketSpacing": false,
+    "quoteProps": "consistent",
+    "trailingComma": "all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omniqlo/lobsters-pwa.git"
+  },
+  "scripts": {
+    "build": "svelte-kit build",
+    "check-types": "svelte-check",
+    "clean": "rm -rf .svelte-kit node_modules",
+    "dev": "svelte-kit dev --open",
+    "format": "prettier --plugin-search-dir=. --write .",
+    "format:check": "prettier --plugin-search-dir=. --check .",
+    "husky": "is-ci || husky install",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "postinstall": "mkdir -p static/js && cp -f node_modules/topbar/topbar.min.js static/js",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "run-s husky sync",
+    "preview": "svelte-kit preview",
+    "setup": "pnpm install && npm run validate",
+    "sync": "svelte-kit sync",
+    "validate": "run-s check-types format:check lint"
+  },
+  "type": "module"
+}

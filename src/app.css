@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Layout */
+nav {
+	@apply h-14;
+}
+main {
+	@apply bottom-14;
+}
+.container {
+	@apply max-w-2xl mx-auto;
+}
+.toast {
+	@apply bottom-14;
+}
+
+/* Theming */
+.border-color {
+	@apply border-slate-100 dark:border-slate-800;
+}
+.bg-color {
+	@apply bg-white dark:bg-slate-900;
+}
+.bg-hover-color {
+	@apply hover:bg-slate-100 dark:hover:bg-slate-800;
+}
+.fill-color {
+	@apply fill-slate-900 dark:fill-white;
+}
+.text-color {
+	@apply text-slate-900 dark:text-white;
+}
+
+img {
+	@apply text-xs overflow-hidden;
+}
+.comment > * {
+	@apply mt-2;
+}
+.comment ol {
+	@apply ml-4 list-decimal;
+}
+.comment ul {
+	@apply ml-4 list-disc;
+}
+.comment a {
+	@apply text-sky-500;
+}
+.comment a:hover {
+	@apply underline;
+}
+.comment :not(pre) > code {
+	@apply px-1 py-0.5 border border-slate-200 rounded bg-slate-100 text-xs;
+}
+.comment pre {
+	@apply p-2 rounded-md bg-slate-100 shadow-[inset_1px_1px_5px_rgba(0,0,0,0.05)] text-xs;
+}
+.about > * {
+	@apply mt-0.5;
+}
