@@ -25,7 +25,7 @@
 	import {hiddenPosts, tagsFollowing, toast} from "$lib/stores";
 	import Header from "$lib/components/Header.svelte";
 	import Posts from "$lib/components/Posts.svelte";
-	import Button from "$lib/components/Button.svelte";
+	import Button from "$lib/components/Button/Button.svelte";
 	import ShowMore from "$lib/components/ShowMore.svelte";
 	import {filterPosts, mergePosts} from "$lib/utils";
 	import type {PostType} from "$lib/types";
@@ -72,8 +72,8 @@
 
 <Header title={tag} link="/tags/{tag}">
 	<Button
-		text={isFollowing ? "Unfollow" : "Follow"}
-		handleClick={() => tagsFollowing.toggle(tag)}
+		label={isFollowing ? "Unfollow" : "Follow"}
+		on:click={() => tagsFollowing.toggle(tag)}
 		highlight={!isFollowing}
 	/>
 </Header>

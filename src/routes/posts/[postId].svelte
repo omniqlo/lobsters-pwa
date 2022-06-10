@@ -2,7 +2,7 @@
 	import {bookmarks, hiddenPosts, usersFollowing} from "$lib/stores";
 	import Comment from "$lib/components/Comment.svelte";
 	import Modal from "$lib/components/Modal.svelte";
-	import Button from "$lib/components/Button.svelte";
+	import Button from "$lib/components/Button/Button.svelte";
 	import Icon from "$lib/components/Icon.svelte";
 	import {formatDate} from "$lib/utils";
 	import type {CommentType, PostType} from "$lib/types";
@@ -93,27 +93,27 @@
 	<Modal handleClose={() => (showModal = false)}>
 		<div class="space-y-3">
 			<Button
-				text="{isBookmarked ? 'Unsave' : 'Save'} Post"
-				handleClick={() => bookmarks.toggle(post)}
+				label="{isBookmarked ? 'Unsave' : 'Save'} Post"
+				on:click={() => bookmarks.toggle(post)}
 				stretch={true}
 				highlight={!isBookmarked}
 			/>
 			<Button
-				text="{isHidden ? 'Unhide' : 'Hide'} Post"
-				handleClick={() => hiddenPosts.toggle(post)}
+				label="{isHidden ? 'Unhide' : 'Hide'} Post"
+				on:click={() => hiddenPosts.toggle(post)}
 				stretch={true}
 				highlight={!isHidden}
 			/>
 			<Button
-				text="{isFollowingUser ? 'Unfollow' : 'Follow'} {post.submitter_user
+				label="{isFollowingUser ? 'Unfollow' : 'Follow'} {post.submitter_user
 					.username}"
-				handleClick={() => usersFollowing.toggle(post.submitter_user.username)}
+				on:click={() => usersFollowing.toggle(post.submitter_user.username)}
 				stretch={true}
 				highlight={!isFollowingUser}
 			/>
 			<Button
-				text="Close"
-				handleClick={() => (showModal = false)}
+				label="Close"
+				on:click={() => (showModal = false)}
 				stretch={true}
 			/>
 		</div>

@@ -1,8 +1,15 @@
 <script lang="ts">
-	export let text: string | undefined = undefined;
-	export let handleClick: () => void;
+	import {createEventDispatcher} from "svelte";
+
+	export let label: string | undefined = undefined;
 	export let stretch = false;
 	export let highlight = false;
+
+	const dispatch = createEventDispatcher<{click: MouseEvent}>();
+
+	function onClick(evt: MouseEvent) {
+		dispatch("click", evt);
+	}
 </script>
 
 <button
@@ -12,11 +19,11 @@
 	class:hover:bg-rose-500={highlight}
 	class:bg-slate-700={!highlight}
 	class:hover:bg-slate-600={!highlight}
-	on:click={handleClick}
+	on:click={onClick}
 >
-	{#if text}
+	{#if label}
 		<div class="px-4 py-2">
-			{text}
+			{label}
 		</div>
 	{/if}
 	<slot />

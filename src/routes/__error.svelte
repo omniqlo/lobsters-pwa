@@ -1,7 +1,7 @@
 <script lang="ts">
 	import {goto} from "$app/navigation";
 	import {page} from "$app/stores";
-	import Button from "$lib/components/Button.svelte";
+	import Button from "$lib/components/Button/Button.svelte";
 </script>
 
 <svelte:head>
@@ -17,7 +17,7 @@
 			</div>
 		{/if}
 		<div class="flex justify-between items-center mt-6">
-			<Button text="Go home" handleClick={() => goto("/")} />
+			<Button label="Go home" on:click={() => goto("/")} />
 			<a
 				class="text-sm hover:underline"
 				href="https://github.com/omniqlo/lobsters-pwa/issues"

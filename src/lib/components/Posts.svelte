@@ -2,7 +2,7 @@
 	import {bookmarks, hiddenPosts, usersFollowing} from "$lib/stores";
 	import ListItem from "$lib/components/ListItem.svelte";
 	import Modal from "$lib/components/Modal.svelte";
-	import Button from "$lib/components/Button.svelte";
+	import Button from "$lib/components/Button/Button.svelte";
 	import type {PostType} from "$lib/types";
 
 	export let posts: PostType[];
@@ -49,28 +49,28 @@
 	<Modal handleClose={() => (selectedPost = null)}>
 		<div class="space-y-3">
 			<Button
-				text="{isBookmarked ? 'Unsave' : 'Save'} Post"
-				handleClick={() => bookmarks.toggle(selectedPost)}
+				label="{isBookmarked ? 'Unsave' : 'Save'} Post"
+				on:click={() => bookmarks.toggle(selectedPost)}
 				stretch={true}
 				highlight={!isBookmarked}
 			/>
 			<Button
-				text="{isHidden ? 'Unhide' : 'Hide'} Post"
-				handleClick={() => hiddenPosts.toggle(selectedPost)}
+				label="{isHidden ? 'Unhide' : 'Hide'} Post"
+				on:click={() => hiddenPosts.toggle(selectedPost)}
 				stretch={true}
 				highlight={!isHidden}
 			/>
 			<Button
-				text="{isFollowingUser ? 'Unfollow' : 'Follow'} {selectedPost
+				label="{isFollowingUser ? 'Unfollow' : 'Follow'} {selectedPost
 					.submitter_user.username}"
-				handleClick={() =>
+				on:click={() =>
 					usersFollowing.toggle(selectedPost.submitter_user.username)}
 				stretch={true}
 				highlight={!isFollowingUser}
 			/>
 			<Button
-				text="Close"
-				handleClick={() => (selectedPost = null)}
+				label="Close"
+				on:click={() => (selectedPost = null)}
 				stretch={true}
 			/>
 		</div>

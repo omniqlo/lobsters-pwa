@@ -3,7 +3,7 @@
 	import Comment from "$lib/components/Comment.svelte";
 	import ListItem from "$lib/components/ListItem.svelte";
 	import Modal from "$lib/components/Modal.svelte";
-	import Button from "$lib/components/Button.svelte";
+	import Button from "$lib/components/Button/Button.svelte";
 	import type {CommentType} from "$lib/types";
 
 	export let comment: CommentType;
@@ -46,16 +46,15 @@
 	<Modal handleClose={() => (showModal = false)}>
 		<div class="space-y-3">
 			<Button
-				text="{isFollowingUser ? 'Unfollow' : 'Follow'} {comment.commenting_user
-					.username}"
-				handleClick={() =>
-					usersFollowing.toggle(comment.commenting_user.username)}
+				label="{isFollowingUser ? 'Unfollow' : 'Follow'} {comment
+					.commenting_user.username}"
+				on:click={() => usersFollowing.toggle(comment.commenting_user.username)}
 				stretch={true}
 				highlight={!isFollowingUser}
 			/>
 			<Button
-				text="Close"
-				handleClick={() => (showModal = false)}
+				label="Close"
+				on:click={() => (showModal = false)}
 				stretch={true}
 			/>
 		</div>

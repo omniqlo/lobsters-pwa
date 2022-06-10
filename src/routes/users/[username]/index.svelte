@@ -2,7 +2,7 @@
 	import SvelteMarkdown from "svelte-markdown";
 	import {hiddenPosts, usersFollowing, toast} from "$lib/stores";
 	import Posts from "$lib/components/Posts.svelte";
-	import Button from "$lib/components/Button.svelte";
+	import Button from "$lib/components/Button/Button.svelte";
 	import ShowMore from "$lib/components/ShowMore.svelte";
 	import {filterPosts, formatDate, mergePosts} from "$lib/utils";
 	import type {PostType, UserType} from "$lib/types";
@@ -59,8 +59,8 @@
 			/>
 		</a>
 		<Button
-			text={isFollowing ? "Unfollow" : "Follow"}
-			handleClick={() => usersFollowing.toggle(user.username)}
+			label={isFollowing ? "Unfollow" : "Follow"}
+			on:click={() => usersFollowing.toggle(user.username)}
 			highlight={!isFollowing}
 		/>
 	</div>

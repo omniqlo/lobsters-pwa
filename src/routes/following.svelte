@@ -1,7 +1,7 @@
 <script lang="ts">
 	import {tagsFollowing, usersFollowing} from "$lib/stores";
 	import Header from "$lib/components/Header.svelte";
-	import Button from "$lib/components/Button.svelte";
+	import Button from "$lib/components/Button/Button.svelte";
 
 	$: lists = [
 		{name: "tags", list: $tagsFollowing, store: tagsFollowing},
@@ -28,7 +28,7 @@
 					>
 						{item}
 					</a>
-					<Button text="Unfollow" handleClick={() => list.store.toggle(item)} />
+					<Button label="Unfollow" on:click={() => list.store.toggle(item)} />
 				</li>
 			{/each}
 		</ul>

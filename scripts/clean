@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+rm -rf \
+	.svelte-kit \
+	node_modules
+
+find . -type f -name 'fixture.json' -delete

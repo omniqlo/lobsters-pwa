@@ -1,10 +1,15 @@
+const path = require("path");
+const glob = require("glob");
 const sveltePreprocess = require("svelte-preprocess");
 
+const rootPath = path.resolve(__dirname, "..");
+const findStories = () =>
+	glob.sync(`${rootPath}/src/**/*.stories.svelte`, {
+		ignore: `${rootPath}/src/**/loki.stories.svelte`,
+	});
+
 module.exports = {
-	stories: [
-		"../src/**/*.stories.mdx",
-		"../src/**/*.stories.@(js|jsx|ts|tsx|svelte)",
-	],
+	stories: async (list) => [...list, ...findStories()],
 	addons: [
 		"@storybook/addon-links",
 		"@storybook/addon-essentials",
