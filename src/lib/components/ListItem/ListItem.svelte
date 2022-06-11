@@ -1,5 +1,6 @@
 <script lang="ts">
-	import Icon from "$lib/components/Icon.svelte";
+	import {createEventDispatcher} from "svelte";
+	import Icon from "$lib/components/Icon/Icon.svelte";
 	import {formatDate} from "$lib/utils";
 
 	export let hasParent = false;
@@ -9,8 +10,13 @@
 	export let createdAt: string;
 	export let score: number;
 	export let numOfComments: number;
-	export let handleMenuDots: () => void;
 	export let tags: string[] | undefined = undefined;
+
+	const dispatch = createEventDispatcher<{menu: MouseEvent}>();
+
+	function onMenu(evt: MouseEvent) {
+		dispatch("menu", evt);
+	}
 </script>
 
 <div class="flex px-4">
@@ -26,7 +32,7 @@
 		>
 			<img
 				class="w-12 h-12 rounded-full"
-				src="https://lobste.rs{avatarUrl}"
+				src={avatarUrl}
 				alt="Avatar of the user {username}"
 				width="48"
 				height="48"
@@ -57,10 +63,7 @@
 				<span class="px-1">·</span>
 				<time datetime={createdAt}>{formatDate(createdAt)}</time>
 			</div>
-			<buttton
-				class="p-1 rounded-full hover:bg-rose-200"
-				on:click={handleMenuDots}
-			>
+			<buttton class="p-1 rounded-full hover:bg-rose-200" on:click={onMenu}>
 				<Icon name="menuDots" width={14} height={14} />
 			</buttton>
 		</header>

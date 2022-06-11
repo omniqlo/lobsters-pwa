@@ -1,9 +1,8 @@
 <script lang="ts">
-	import Icon from "./Icon.svelte";
-	import {page} from "$app/stores";
+	import Icon from "../Icon/Icon.svelte";
 	import type {IconName} from "$lib/icons";
 
-	$: pathname = $page.url.pathname;
+	export let pathname: string;
 
 	const links: {link: string; href: string; icon: IconName}[] = [
 		{link: "Home", href: "/", icon: "home"},
@@ -13,9 +12,7 @@
 	];
 </script>
 
-<nav
-	class="fixed bottom-0 inset-x-0 flex items-center border-t border-color bg-color"
->
+<nav class="flex items-center border-t border-color bg-color">
 	<ul class="container flex h-full">
 		{#each links as link (link.link)}
 			<li

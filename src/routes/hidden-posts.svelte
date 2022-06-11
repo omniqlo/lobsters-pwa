@@ -1,6 +1,6 @@
 <script lang="ts">
 	import {hiddenPosts} from "$lib/stores";
-	import Header from "$lib/components/Header.svelte";
+	import Header from "$lib/components/Header/Header.svelte";
 	import Posts from "$lib/components/Posts.svelte";
 
 	// Show posts in reverse order. `revese` is an in-place operation.

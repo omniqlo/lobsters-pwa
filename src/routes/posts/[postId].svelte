@@ -1,9 +1,9 @@
 <script lang="ts">
 	import {bookmarks, hiddenPosts, usersFollowing} from "$lib/stores";
 	import Comment from "$lib/components/Comment.svelte";
-	import Modal from "$lib/components/Modal.svelte";
+	import Modal from "$lib/components/Modal/Modal.svelte";
 	import Button from "$lib/components/Button/Button.svelte";
-	import Icon from "$lib/components/Icon.svelte";
+	import Icon from "$lib/components/Icon/Icon.svelte";
 	import {formatDate} from "$lib/utils";
 	import type {CommentType, PostType} from "$lib/types";
 
@@ -90,31 +90,31 @@
 	</ul>
 {/if}
 {#if showModal}
-	<Modal handleClose={() => (showModal = false)}>
+	<Modal on:close={() => (showModal = false)}>
 		<div class="space-y-3">
 			<Button
 				label="{isBookmarked ? 'Unsave' : 'Save'} Post"
-				on:click={() => bookmarks.toggle(post)}
 				stretch={true}
 				highlight={!isBookmarked}
+				on:click={() => bookmarks.toggle(post)}
 			/>
 			<Button
 				label="{isHidden ? 'Unhide' : 'Hide'} Post"
-				on:click={() => hiddenPosts.toggle(post)}
 				stretch={true}
 				highlight={!isHidden}
+				on:click={() => hiddenPosts.toggle(post)}
 			/>
 			<Button
 				label="{isFollowingUser ? 'Unfollow' : 'Follow'} {post.submitter_user
 					.username}"
-				on:click={() => usersFollowing.toggle(post.submitter_user.username)}
 				stretch={true}
 				highlight={!isFollowingUser}
+				on:click={() => usersFollowing.toggle(post.submitter_user.username)}
 			/>
 			<Button
 				label="Close"
-				on:click={() => (showModal = false)}
 				stretch={true}
+				on:click={() => (showModal = false)}
 			/>
 		</div>
 	</Modal>

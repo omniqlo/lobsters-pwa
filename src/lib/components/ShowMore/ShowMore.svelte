@@ -1,15 +1,22 @@
 <script lang="ts">
+	import {createEventDispatcher} from "svelte";
+
 	export let show: boolean;
-	export let handleClick: () => void;
 	export let loading: boolean;
+
+	const dispatch = createEventDispatcher<{click: MouseEvent}>();
+
+	function onClick(evt: MouseEvent) {
+		dispatch("click", evt);
+	}
 </script>
 
 {#if show}
 	<button
 		class="flex justify-center w-full p-3 bg-hover-color text-sm text-rose-400"
 		class:bg-slate-100={loading}
-		on:click={handleClick}
 		disabled={loading}
+		on:click={onClick}
 	>
 		{#if loading}
 			Loading...

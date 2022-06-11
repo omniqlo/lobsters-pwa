@@ -1,7 +1,7 @@
 <script lang="ts">
 	import {theme, toast} from "$lib/stores";
-	import Header from "$lib/components/Header.svelte";
-	import Icon from "$lib/components/Icon.svelte";
+	import Header from "$lib/components/Header/Header.svelte";
+	import Icon from "$lib/components/Icon/Icon.svelte";
 	import {storeBackup, exportBackup} from "$lib/backup";
 
 	let fileInput: HTMLInputElement;

@@ -26,7 +26,7 @@
 />
 
 <Story
-	name="Stretched"
+	name="With Stretch"
 	args={{
 		label: "Button",
 		stretch: true,
@@ -34,9 +34,17 @@
 />
 
 <Story
-	name="Highlighted"
+	name="With Highlight"
 	args={{
 		label: "Button",
 		highlight: true,
+	}}
+/>
+
+<Story
+	name="With Long Label"
+	args={{
+		label:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quam turpis, lacinia non varius et, sollicitudin at arcu. Nulla facilisi. Pellentesque id orci turpis.",
 	}}
 />

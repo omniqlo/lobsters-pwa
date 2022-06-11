@@ -1,3 +1,4 @@
+const path = require("path");
 const sveltePreprocess = require("svelte-preprocess");
 
 module.exports = {
@@ -22,5 +23,12 @@ module.exports = {
 		preprocess: sveltePreprocess({
 			postcss: true,
 		}),
+	},
+	webpackFinal: async (config) => {
+		config.resolve.alias = {
+			...config.resolve.alias,
+			$lib: path.resolve(__dirname, "../../src/lib"),
+		};
+		return config;
 	},
 };

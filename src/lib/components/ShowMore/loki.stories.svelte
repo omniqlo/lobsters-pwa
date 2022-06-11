@@ -1,15 +1,15 @@
 <script lang="ts">
 	import {Meta, Story} from "@storybook/addon-svelte-csf";
-	import Button from "./Button.svelte";
+	import ShowMore from "./ShowMore.svelte";
 	import {default as fixture} from "./fixture.json";
 </script>
 
-<Meta title="Loki/Button" />
+<Meta title="Loki/ShowMore" />
 
-<Story name="Button">
+<Story name="ShowMore">
 	{#each fixture as args}
 		<pre>{JSON.stringify(args, null, 2)}</pre>
-		<Button {...args} on:click={() => {}} />
+		<ShowMore {...args} on:click={() => {}} />
 		<br />
 	{/each}
 </Story>

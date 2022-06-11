@@ -1,8 +1,8 @@
 <script lang="ts">
 	import {usersFollowing} from "$lib/stores";
 	import Comment from "$lib/components/Comment.svelte";
-	import ListItem from "$lib/components/ListItem.svelte";
-	import Modal from "$lib/components/Modal.svelte";
+	import ListItem from "$lib/components/ListItem/ListItem.svelte";
+	import Modal from "$lib/components/Modal/Modal.svelte";
 	import Button from "$lib/components/Button/Button.svelte";
 	import type {CommentType} from "$lib/types";
 
@@ -21,12 +21,12 @@
 <ListItem
 	{hasParent}
 	canBeHidden={hasNestedComments}
-	avatarUrl={comment.commenting_user.avatar_url}
+	avatarUrl="https://lobste.rs{comment.commenting_user.avatar_url}"
 	username={comment.commenting_user.username}
 	createdAt={comment.created_at}
 	score={comment.score}
 	numOfComments={comment.comments.length}
-	handleMenuDots={() => (showModal = true)}
+	on:menu={() => (showModal = true)}
 >
 	<div class="comment text-sm">{@html comment.comment}</div>
 </ListItem>
@@ -43,19 +43,19 @@
 	</ul>
 {/if}
 {#if showModal}
-	<Modal handleClose={() => (showModal = false)}>
+	<Modal on:close={() => (showModal = false)}>
 		<div class="space-y-3">
 			<Button
 				label="{isFollowingUser ? 'Unfollow' : 'Follow'} {comment
 					.commenting_user.username}"
-				on:click={() => usersFollowing.toggle(comment.commenting_user.username)}
 				stretch={true}
 				highlight={!isFollowingUser}
+				on:click={() => usersFollowing.toggle(comment.commenting_user.username)}
 			/>
 			<Button
 				label="Close"
-				on:click={() => (showModal = false)}
 				stretch={true}
+				on:click={() => (showModal = false)}
 			/>
 		</div>
 	</Modal>

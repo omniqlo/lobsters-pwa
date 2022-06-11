@@ -1,6 +1,6 @@
 <script lang="ts">
 	import {tagsFollowing, usersFollowing} from "$lib/stores";
-	import Header from "$lib/components/Header.svelte";
+	import Header from "$lib/components/Header/Header.svelte";
 	import Button from "$lib/components/Button/Button.svelte";
 
 	$: lists = [

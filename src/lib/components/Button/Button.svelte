@@ -1,7 +1,7 @@
 <script lang="ts">
 	import {createEventDispatcher} from "svelte";
 
-	export let label: string | undefined = undefined;
+	export let label = "";
 	export let stretch = false;
 	export let highlight = false;
 
@@ -26,5 +26,4 @@
 			{label}
 		</div>
 	{/if}
-	<slot />
 </button>

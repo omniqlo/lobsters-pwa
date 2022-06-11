@@ -3,7 +3,7 @@
 	import {hiddenPosts, usersFollowing, toast} from "$lib/stores";
 	import Posts from "$lib/components/Posts.svelte";
 	import Button from "$lib/components/Button/Button.svelte";
-	import ShowMore from "$lib/components/ShowMore.svelte";
+	import ShowMore from "$lib/components/ShowMore/ShowMore.svelte";
 	import {filterPosts, formatDate, mergePosts} from "$lib/utils";
 	import type {PostType, UserType} from "$lib/types";
 
@@ -18,7 +18,7 @@
 	$: filteredPosts = filterPosts(posts, $hiddenPosts);
 	$: isFollowing = $usersFollowing.includes(user.username);
 
-	async function handleClick() {
+	async function onClick() {
 		try {
 			if (hasNextPage) {
 				loading = true;
@@ -60,8 +60,8 @@
 		</a>
 		<Button
 			label={isFollowing ? "Unfollow" : "Follow"}
-			on:click={() => usersFollowing.toggle(user.username)}
 			highlight={!isFollowing}
+			on:click={() => usersFollowing.toggle(user.username)}
 		/>
 	</div>
 	<h1 class="mt-2 text-xl font-black">
@@ -109,4 +109,4 @@
 	</ul>
 </header>
 <Posts posts={filteredPosts} />
-<ShowMore show={hasNextPage} {handleClick} {loading} />
+<ShowMore show={hasNextPage} {loading} on:click={onClick} />

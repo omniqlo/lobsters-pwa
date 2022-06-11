@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="toast fixed inset-x-0 text-white"
+	class="text-white"
 	class:bg-green-700={toast.type === "info"}
 	class:bg-red-700={toast.type === "error"}
 	in:slide

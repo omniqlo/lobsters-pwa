@@ -1,7 +1,7 @@
 <script lang="ts">
 	import {bookmarks, hiddenPosts, usersFollowing} from "$lib/stores";
-	import ListItem from "$lib/components/ListItem.svelte";
-	import Modal from "$lib/components/Modal.svelte";
+	import ListItem from "$lib/components/ListItem/ListItem.svelte";
+	import Modal from "$lib/components/Modal/Modal.svelte";
 	import Button from "$lib/components/Button/Button.svelte";
 	import type {PostType} from "$lib/types";
 
@@ -26,13 +26,13 @@
 			<li class="border-b border-color bg-hover-color">
 				<article>
 					<ListItem
-						avatarUrl={post.submitter_user.avatar_url}
+						avatarUrl="https://lobste.rs{post.submitter_user.avatar_url}"
 						username={post.submitter_user.username}
 						createdAt={post.created_at}
 						score={post.score}
 						numOfComments={post.comment_count}
-						handleMenuDots={() => (selectedPost = post)}
 						tags={post.tags}
+						on:menu={() => (selectedPost = post)}
 					>
 						<h2 class="leading-snug font-bold hover:underline">
 							<a sveltekit:prefetch href="/posts/{post.short_id}"
@@ -46,32 +46,32 @@
 	</ul>
 {/if}
 {#if selectedPost !== null}
-	<Modal handleClose={() => (selectedPost = null)}>
+	<Modal on:close={() => (selectedPost = null)}>
 		<div class="space-y-3">
 			<Button
 				label="{isBookmarked ? 'Unsave' : 'Save'} Post"
-				on:click={() => bookmarks.toggle(selectedPost)}
 				stretch={true}
 				highlight={!isBookmarked}
+				on:click={() => bookmarks.toggle(selectedPost)}
 			/>
 			<Button
 				label="{isHidden ? 'Unhide' : 'Hide'} Post"
-				on:click={() => hiddenPosts.toggle(selectedPost)}
 				stretch={true}
 				highlight={!isHidden}
+				on:click={() => hiddenPosts.toggle(selectedPost)}
 			/>
 			<Button
 				label="{isFollowingUser ? 'Unfollow' : 'Follow'} {selectedPost
 					.submitter_user.username}"
-				on:click={() =>
-					usersFollowing.toggle(selectedPost.submitter_user.username)}
 				stretch={true}
 				highlight={!isFollowingUser}
+				on:click={() =>
+					usersFollowing.toggle(selectedPost.submitter_user.username)}
 			/>
 			<Button
 				label="Close"
-				on:click={() => (selectedPost = null)}
 				stretch={true}
+				on:click={() => (selectedPost = null)}
 			/>
 		</div>
 	</Modal>

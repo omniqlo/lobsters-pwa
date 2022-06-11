@@ -23,10 +23,10 @@
 <script lang="ts">
 	import {page} from "$app/stores";
 	import {hiddenPosts, tagsFollowing, toast} from "$lib/stores";
-	import Header from "$lib/components/Header.svelte";
+	import Header from "$lib/components/Header/Header.svelte";
 	import Posts from "$lib/components/Posts.svelte";
 	import Button from "$lib/components/Button/Button.svelte";
-	import ShowMore from "$lib/components/ShowMore.svelte";
+	import ShowMore from "$lib/components/ShowMore/ShowMore.svelte";
 	import {filterPosts, mergePosts} from "$lib/utils";
 	import type {PostType} from "$lib/types";
 
@@ -41,7 +41,7 @@
 	$: filteredPosts = filterPosts(posts, $hiddenPosts);
 	$: isFollowing = $tagsFollowing.includes(tag);
 
-	async function handleClick() {
+	async function onClick() {
 		try {
 			if (hasNextPage) {
 				loading = true;
@@ -73,9 +73,9 @@
 <Header title={tag} link="/tags/{tag}">
 	<Button
 		label={isFollowing ? "Unfollow" : "Follow"}
-		on:click={() => tagsFollowing.toggle(tag)}
 		highlight={!isFollowing}
+		on:click={() => tagsFollowing.toggle(tag)}
 	/>
 </Header>
 <Posts posts={filteredPosts} />
-<ShowMore show={hasNextPage} {handleClick} {loading} />
+<ShowMore show={hasNextPage} {loading} on:click={onClick} />

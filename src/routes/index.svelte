@@ -23,7 +23,7 @@
 <script lang="ts">
 	import {hiddenPosts, toast} from "$lib/stores";
 	import Posts from "$lib/components/Posts.svelte";
-	import ShowMore from "$lib/components/ShowMore.svelte";
+	import ShowMore from "$lib/components/ShowMore/ShowMore.svelte";
 	import {filterPosts, mergePosts} from "$lib/utils";
 	import type {PostType} from "$lib/types";
 
@@ -43,7 +43,7 @@
 		{link: "Newest", href: "/?type=newest"},
 	];
 
-	async function handleClick() {
+	async function onClick() {
 		try {
 			if (hasNextPage) {
 				loading = true;
@@ -88,4 +88,4 @@
 	{/each}
 </ul>
 <Posts posts={filteredposts} />
-<ShowMore show={hasNextPage} {handleClick} {loading} />
+<ShowMore show={hasNextPage} {loading} on:click={onClick} />
