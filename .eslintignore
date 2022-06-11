@@ -6,8 +6,11 @@ node_modules
 .env
 .env.*
 !.env.example
+
 fixture.json
+/.netlify
 /static/js/topbar.min.js
+/storybook-static
 
 # Ignore files for PNPM, NPM and YARN
 pnpm-lock.yaml

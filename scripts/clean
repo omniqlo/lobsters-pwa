@@ -3,7 +3,10 @@
 set -euo pipefail
 
 rm -rf \
+	.netlify \
 	.svelte-kit \
-	node_modules
+	node_modules \
+	static/js/topbar.min.js \
+	storybook-static
 
 find . -type f -name 'fixture.json' -delete

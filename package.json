@@ -26,7 +26,7 @@
     "@storybook/manager-webpack4": "^6.5.8",
     "@storybook/svelte": "^6.5.8",
     "@storybook/testing-library": "^0.0.11",
-    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-netlify": "next",
     "@sveltejs/kit": "next",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
