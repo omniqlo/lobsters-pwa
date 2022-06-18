@@ -20,6 +20,7 @@
 			{#each list.list as item}
 				<li
 					class="flex justify-between items-center px-4 py-3 border-b border-color"
+					data-testid="user-following"
 				>
 					<a
 						class="hover:underline"

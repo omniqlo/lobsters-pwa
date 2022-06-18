@@ -63,7 +63,11 @@
 				<span class="px-1">·</span>
 				<time datetime={createdAt}>{formatDate(createdAt)}</time>
 			</div>
-			<buttton class="p-1 rounded-full hover:bg-rose-200" on:click={onMenu}>
+			<buttton
+				class="p-1 rounded-full hover:bg-rose-200"
+				on:click={onMenu}
+				data-testid="list-item-menu-btn"
+			>
 				<Icon name="menuDots" width={14} height={14} />
 			</buttton>
 		</header>

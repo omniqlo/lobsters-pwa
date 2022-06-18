@@ -28,7 +28,7 @@
 {:else}
 	<ul class="flex flex-wrap m-2">
 		{#each filteredTags as tag (tag.tag)}
-			<li class="w-full sm:w-1/2">
+			<li class="w-full sm:w-1/2" data-testid="tag">
 				<a
 					class="block h-20 m-2 p-2 border border-slate-200 dark:border-slate-800 rounded bg-hover-color"
 					sveltekit:prefetch

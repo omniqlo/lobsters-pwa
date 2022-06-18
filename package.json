@@ -16,6 +16,7 @@
     "@babel/core": "^7.18.2",
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
+    "@playwright/test": "^1.22.2",
     "@storybook/addon-actions": "^6.5.8",
     "@storybook/addon-essentials": "^6.5.8",
     "@storybook/addon-interactions": "^6.5.8",
@@ -91,6 +92,8 @@
     "setup": "pnpm install && npm run validate",
     "storybook": "start-storybook -p 6006",
     "sync": "svelte-kit sync",
+    "test:e2e": "playwright test",
+    "test:e2e:open": "playwright open http://localhost:3000",
     "test:unit": "vitest run",
     "test:unit:watch": "vitest watch",
     "validate": "run-s check-types format:check lint test:unit"
