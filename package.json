@@ -82,7 +82,6 @@
     "husky": "is-ci || husky install",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "loki": "start-test loki:storybook 9009 loki:test",
     "loki:storybook": "start-storybook -p 9009 -c .loki/.storybook --ci",
     "loki:test": "npm run build:fixtures && loki test --port 9009",
     "postinstall": "mkdir -p static/js && cp -f node_modules/topbar/topbar.min.js static/js",
@@ -96,6 +95,7 @@
     "test:e2e:open": "playwright open http://localhost:3000",
     "test:unit": "vitest run",
     "test:unit:watch": "vitest watch",
+    "test:visual": "start-test loki:storybook 9009 loki:test",
     "validate": "run-s check-types format:check lint test:unit"
   },
   "type": "module"
