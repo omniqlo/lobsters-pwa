@@ -5,7 +5,7 @@ import type {PostType} from "$lib/types";
 export const formatDate = (date: DateOkay) =>
 	fromNow(date, {max: 1, suffix: true});
 
-// Handles dupe posts
+// Handles duplicate posts
 export function mergePosts(oldPosts: PostType[], newPosts: PostType[]) {
 	const posts = [...oldPosts];
 	const postIds = new Set(oldPosts.map((post) => post.short_id));

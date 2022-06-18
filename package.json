@@ -56,7 +56,8 @@
     "tailwindcss": "^3.0.24",
     "topbar": "^1.0.1",
     "tslib": "^2.3.1",
-    "typescript": "^4.7.3"
+    "typescript": "^4.7.3",
+    "vitest": "^0.15.1"
   },
   "homepage": "https://github.com/omniqlo/lobsters-pwa#readme",
   "prettier": {
@@ -90,7 +91,9 @@
     "setup": "pnpm install && npm run validate",
     "storybook": "start-storybook -p 6006",
     "sync": "svelte-kit sync",
-    "validate": "run-s check-types format:check lint"
+    "test:unit": "vitest run",
+    "test:unit:watch": "vitest watch",
+    "validate": "run-s check-types format:check lint test:unit"
   },
   "type": "module"
 }
