@@ -40,6 +40,12 @@ $ pnpm preview
 
 Then open a browser and navigate to http://localhost:3000 to view the app.
 
+### Storybook
+
+[Storybook](https://storybook.js.org/) is an open-source tool for building UI components in isolation. Run stories (located in `src/lib/components`) with the command `pnpm storybook`.
+
+_Note_: The `loki.stories.svelte` files are used for visual regression tests and don't appear in Storybook when running `pnpm storybook`.
+
 ## Testing
 
 **Commands**:
