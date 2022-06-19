@@ -1,6 +1,6 @@
 import fastCartesian from "fast-cartesian";
 
-const now = new Date();
+const date = new Date("1995-12-17T03:24:00Z");
 
 export function buildFixture() {
 	return fastCartesian([
@@ -8,7 +8,7 @@ export function buildFixture() {
 		[true, false],
 		["https://i.pravatar.cc/100?img=1", ""],
 		["username"],
-		[new Date(now.getDate() - 1).toISOString(), now.toISOString()],
+		[new Date(date.getDate() - 1).toISOString(), date.toISOString()],
 		[10],
 		[10],
 		[[], ["tag"]],
