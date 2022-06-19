@@ -3,8 +3,10 @@
 set -euo pipefail
 
 rm -rf \
+	.lighthouseci \
 	.netlify \
 	.svelte-kit \
+	build \
 	node_modules \
 	static/js/topbar.min.js \
 	storybook-static

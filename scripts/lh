@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+lh() {
+	npx lhci "$@"
+}
+
+pnpm build
+lh healthcheck --fatal
+lh collect
+if ! npx is-ci; then
+	find .lighthouseci -name '*.html' -exec open {} \;
+fi
+# lh assert
