@@ -22,7 +22,7 @@
 
 <script lang="ts">
 	import {hiddenPosts, toast} from "$lib/stores";
-	import Posts from "$lib/components/Posts.svelte";
+	import Posts from "$lib/components/Posts/Posts.svelte";
 	import ShowMore from "$lib/components/ShowMore/ShowMore.svelte";
 	import {filterPosts, mergePosts} from "$lib/utils";
 	import type {PostType} from "$lib/types";

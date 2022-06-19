@@ -1,7 +1,7 @@
 <script lang="ts">
 	import {bookmarks} from "$lib/stores";
 	import Header from "$lib/components/Header/Header.svelte";
-	import Posts from "$lib/components/Posts.svelte";
+	import Posts from "$lib/components/Posts/Posts.svelte";
 
 	// Show posts in reverse order. `revese` is an in-place operation.
 	$: posts = [...$bookmarks].reverse();

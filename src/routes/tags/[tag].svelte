@@ -24,7 +24,7 @@
 	import {page} from "$app/stores";
 	import {hiddenPosts, tagsFollowing, toast} from "$lib/stores";
 	import Header from "$lib/components/Header/Header.svelte";
-	import Posts from "$lib/components/Posts.svelte";
+	import Posts from "$lib/components/Posts/Posts.svelte";
 	import Button from "$lib/components/Button/Button.svelte";
 	import ShowMore from "$lib/components/ShowMore/ShowMore.svelte";
 	import {filterPosts, mergePosts} from "$lib/utils";

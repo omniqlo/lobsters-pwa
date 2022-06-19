@@ -1,6 +1,6 @@
 <script lang="ts">
 	import {usersFollowing} from "$lib/stores";
-	import Comment from "$lib/components/Comment.svelte";
+	import Comment from "$lib/components/Comment/Comment.svelte";
 	import ListItem from "$lib/components/ListItem/ListItem.svelte";
 	import Modal from "$lib/components/Modal/Modal.svelte";
 	import Button from "$lib/components/Button/Button.svelte";
