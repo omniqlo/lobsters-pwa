@@ -46,7 +46,7 @@ img {
 	@apply ml-4 list-disc;
 }
 .comment a {
-	@apply text-red-600;
+	@apply text-blue-600;
 }
 .comment a:hover {
 	@apply underline;
