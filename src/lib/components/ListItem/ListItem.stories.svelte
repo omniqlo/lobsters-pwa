@@ -16,7 +16,7 @@
 		createdAt: {control: "date"},
 		score: {control: "number"},
 		numOfComments: {control: "number"},
-		onMenu: {action: "onMenu"},
+		onMenuLaunch: {action: "onMenuLaunch"},
 	}}
 />
 
@@ -26,7 +26,7 @@
 		createdAt={typeof args.createdAt === "number"
 			? new Date(args.createdAt).toISOString()
 			: now}
-		on:menu={args.onMenu}
+		on:menulaunch={args.onMenuLaunch}
 	/>
 </Template>
 

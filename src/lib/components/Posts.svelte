@@ -32,7 +32,7 @@
 						score={post.score}
 						numOfComments={post.comment_count}
 						tags={post.tags}
-						on:menu={() => (selectedPost = post)}
+						on:menulaunch={() => (selectedPost = post)}
 					>
 						<h2
 							class="leading-snug font-bold hover:underline"

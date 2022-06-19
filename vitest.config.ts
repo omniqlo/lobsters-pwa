@@ -1,9 +1,3 @@
-import {defineConfig} from "vitest/config";
+import {extractFromSvelteConfig} from "vitest-svelte-kit";
 
-export default defineConfig({
-	test: {
-		include: ["src/**/*.test.ts"],
-		globals: true,
-		// environment: "jsdom",
-	},
-});
+export default extractFromSvelteConfig();

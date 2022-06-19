@@ -2,7 +2,23 @@ import * as utils from "../utils";
 import type {PostType} from "../types";
 
 describe("mergePosts", () => {
-	it("should merge two lists of posts into one", () => {
+	it("should merge [] and []", () => {
+		expect(utils.mergePosts([], [])).toEqual([]);
+	});
+
+	it("should merge [PostType] and []", () => {
+		expect(utils.mergePosts([{short_id: "1"}] as PostType[], [])).toEqual([
+			{short_id: "1"},
+		]);
+	});
+
+	it("should merge [] and [PostType]", () => {
+		expect(utils.mergePosts([], [{short_id: "1"}] as PostType[])).toEqual([
+			{short_id: "1"},
+		]);
+	});
+
+	it("should merge two lists of posts", () => {
 		expect(
 			utils.mergePosts(
 				[{short_id: "1"}, {short_id: "2"}] as PostType[],

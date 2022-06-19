@@ -26,7 +26,7 @@
 	createdAt={comment.created_at}
 	score={comment.score}
 	numOfComments={comment.comments.length}
-	on:menu={() => (showModal = true)}
+	on:menulaunch={() => (showModal = true)}
 >
 	<div class="comment text-sm">{@html comment.comment}</div>
 </ListItem>

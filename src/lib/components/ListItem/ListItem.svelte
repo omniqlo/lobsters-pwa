@@ -12,10 +12,10 @@
 	export let numOfComments: number;
 	export let tags: string[] | undefined = undefined;
 
-	const dispatch = createEventDispatcher<{menu: MouseEvent}>();
+	const dispatch = createEventDispatcher<{menulaunch: MouseEvent}>();
 
-	function onMenu(evt: MouseEvent) {
-		dispatch("menu", evt);
+	function onMenuLaunch(evt: MouseEvent) {
+		dispatch("menulaunch", evt);
 	}
 </script>
 
@@ -65,7 +65,7 @@
 			</div>
 			<buttton
 				class="p-1 rounded-full hover:bg-rose-200"
-				on:click={onMenu}
+				on:click={onMenuLaunch}
 				data-testid="list-item-menu-btn"
 			>
 				<Icon name="menuDots" width={14} height={14} />
