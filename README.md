@@ -1,5 +1,7 @@
 # lobsters-pwa
 
+[![Build Status][build-badge]][build]
+
 A read-only clone of the [Lobsters](https://lobste.rs/) frontend built using [SvelteKit](https://kit.svelte.dev/) and [TailwindCSS](https://tailwindcss.com/). Check out the app [here](https://lobsters-pwa.netlify.app/).
 
 ## Development
@@ -50,3 +52,6 @@ Then open a browser and navigate to http://localhost:3000 to view the app.
 ## Contributing
 
 If you find any issues or have suggestions for improvement, please create a new [issue](https://github.com/omniqlo/lobsters-pwa/issues). Thanks!
+
+[build-badge]: https://img.shields.io/github/workflow/status/omniqlo/lobsters-pwa/ci?logo=github&style=flat-square
+[build]: https://github.com/omniqlo/lobsters-pwa/actions/workflows/ci.yml

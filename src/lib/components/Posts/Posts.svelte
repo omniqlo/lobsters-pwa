@@ -7,7 +7,7 @@
 
 	export let posts: PostType[];
 
-	let selectedPost: PostType | null = null;
+	let selectedPost: PostType;
 
 	$: isBookmarked = selectedPost
 		? $bookmarks.map((post) => post.short_id).includes(selectedPost.short_id)
@@ -18,6 +18,10 @@
 	$: isFollowingUser = selectedPost
 		? $usersFollowing.includes(selectedPost.submitter_user.username)
 		: false;
+
+	function unselectPost() {
+		selectedPost = null as any;
+	}
 </script>
 
 {#if posts.length > 0}
@@ -53,8 +57,8 @@
 		{/each}
 	</ul>
 {/if}
-{#if selectedPost !== null}
-	<Modal on:close={() => (selectedPost = null)}>
+{#if selectedPost}
+	<Modal on:close={unselectPost}>
 		<div class="space-y-3">
 			<Button
 				label="{isBookmarked ? 'Unsave' : 'Save'} Post"
@@ -76,11 +80,7 @@
 				on:click={() =>
 					usersFollowing.toggle(selectedPost.submitter_user.username)}
 			/>
-			<Button
-				label="Close"
-				stretch={true}
-				on:click={() => (selectedPost = null)}
-			/>
+			<Button label="Close" stretch={true} on:click={unselectPost} />
 		</div>
 	</Modal>
 {/if}
