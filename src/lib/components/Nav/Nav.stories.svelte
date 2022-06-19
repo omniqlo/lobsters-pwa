@@ -17,3 +17,7 @@
 <Story name="Nav" let:args>
 	<Nav {...args} />
 </Story>
+
+<Story name="Nav (at Home)" let:args>
+	<Nav pathname={args.pathname || "/"} />
+</Story>

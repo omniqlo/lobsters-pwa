@@ -22,8 +22,13 @@
 
 {#if posts.length > 0}
 	<ul>
-		{#each posts as post (post.short_id)}
-			<li class="border-b border-color bg-hover-color" data-testid="post">
+		{#each posts as post, idx (post.short_id)}
+			<li
+				class="border-b border-color bg-hover-color"
+				aria-setsize={posts.length}
+				aria-posinset={idx + 1}
+				data-testid="post"
+			>
 				<article>
 					<ListItem
 						avatarUrl="https://lobste.rs{post.submitter_user.avatar_url}"

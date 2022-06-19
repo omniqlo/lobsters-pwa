@@ -13,7 +13,7 @@
 
 {#if show}
 	<button
-		class="flex justify-center w-full p-3 bg-hover-color text-sm text-rose-400"
+		class="flex justify-center w-full p-3 bg-hover-color text-sm text-rose-600"
 		class:bg-slate-100={loading}
 		disabled={loading}
 		on:click={onClick}

@@ -66,6 +66,7 @@
 			<buttton
 				class="p-1 rounded-full hover:bg-rose-200"
 				on:click={onMenuLaunch}
+				aria-label="Menu"
 				data-testid="list-item-menu-btn"
 			>
 				<Icon name="menuDots" width={14} height={14} />

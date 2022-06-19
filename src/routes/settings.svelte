@@ -109,7 +109,7 @@
 
 <style lang="postcss">
 	h2 {
-		@apply px-4 pt-6 pb-2 border-b text-xs font-bold tracking-wide uppercase text-rose-400;
+		@apply px-4 pt-6 pb-2 border-b text-xs font-bold tracking-wide uppercase text-rose-600;
 	}
 	li {
 		@apply border-b;

@@ -43,6 +43,7 @@
 		</div>
 		<button
 			class="p-1 rounded-full hover:bg-rose-200 fill-slate-500"
+			aria-label="Menu"
 			on:click={onMenuLaunch}
 		>
 			<Icon name="menuDots" width={14} height={14} />

@@ -80,7 +80,7 @@
 		<li class="flex-1 flex justify-center bg-hover-color">
 			<a
 				class="p-2"
-				class:text-rose-400={type === link.link}
+				class:text-rose-600={type === link.link}
 				sveltekit:prefetch
 				href={link.href}>{link.link}</a
 			>

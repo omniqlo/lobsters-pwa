@@ -26,6 +26,7 @@
 						? true
 						: undefined}
 					href={link.href}
+					aria-current={pathname === link.href}
 				>
 					<Icon name={link.icon} />
 					<div class="mt-0.5 text-xs">

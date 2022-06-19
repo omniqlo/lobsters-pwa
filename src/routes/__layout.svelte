@@ -13,7 +13,7 @@
 	if (browser) {
 		window.topbar.config({
 			barColors: {
-				"1": "#FB7185", // rose-400
+				"1": "#E11D48", // rose-600
 			},
 		});
 	}
